@@ -28,8 +28,6 @@
 Sistema de Microsserviços referente ao Projeto Acadêmico da Disciplina de Desenvolvimento de APIs e Microsserviços, ministrada pelo professor Giovani Bontempo na Faculdade Impacta, durante o terceiro semestre do curso Análise e Desenvolvimento de Sistemas cursado no 2º Semestre de 2025.
 <br>
 
-<h2 id="requisitos">📦 Requisitos</h2>
-
 <h2 id="grupo">👥 Integrantes do Grupo 12</h2>
 <table align="center">
   <tr>
@@ -53,6 +51,8 @@ Sistema de Microsserviços referente ao Projeto Acadêmico da Disciplina de Dese
     </td>
   </tr>
 </table>
+
+<h2 id="requisitos">📦 Requisitos</h2>
 
 <h2 id="arquitetura">🧩 Arquitetura do Sistema</h2>
 SchoolMicroservices<br>
