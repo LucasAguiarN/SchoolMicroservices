@@ -55,6 +55,10 @@ Sistema de Microsserviços referente ao Projeto Acadêmico da Disciplina de Dese
 </table>
 
 <h2 id="arquitetura">🧩 Arquitetura do Sistema</h2>
+SchoolMicroservices<br>
+&nbsp;&nbsp;&nbsp;SchoolManagerAPI<br>
+&nbsp;&nbsp;&nbsp;SchoolReservationAPI<br>
+&nbsp;&nbsp;&nbsp;SchoolActivitiesAPI
 
 <h2 id="licença">📜 Licença</h2>
 Este projeto é para fins educacionais e está disponível sob a <a href="./LICENSE">Licença MIT.</a>
