@@ -16,7 +16,7 @@ class ReservaController:
             - Se não houver registros retorna JSON com mensagem de erro e código HTTP 404
         """
 
-        # Consulta registros da tabela "Reserva" usando SQLAlchemy e salvar em reservas
+        # Consulta registros da tabela "Reserva" usando SQLAlchemy e salva em reservas
         reservas = Reserva.query.all()
 
         # Se houver reservas cadastradas
