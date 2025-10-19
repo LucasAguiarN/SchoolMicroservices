@@ -14,7 +14,7 @@ class Nota(db.Model):
 
     atividade_id = db.Column(db.Integer, db.ForeignKey("atividades.id"), nullable=False)
 
-    # Relacionamento Muitos-para-Um (N-1) com Tabela Nota
+    # Relacionamento Muitos-para-Um (N-1) com Tabela Atividade
     atividade = db.relationship("Atividade", back_populates="notas")
 
     # Converter atributos da classe em um dicionario para envio em JSON

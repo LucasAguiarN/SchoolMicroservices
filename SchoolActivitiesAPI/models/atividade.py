@@ -16,7 +16,7 @@ class Atividade(db.Model):
     turma_id = db.Column(db.Integer, nullable=False)
     professor_id = db.Column(db.Integer, nullable=False)
 
-    # Relacionamento Um-para-Muitos (1-N) com Tabela Atividade
+    # Relacionamento Um-para-Muitos (1-N) com Tabela Nota
     notas = db.relationship("Nota", back_populates="atividade")
 
     # Converter atributos da classe em um dicionario para envio em JSON
