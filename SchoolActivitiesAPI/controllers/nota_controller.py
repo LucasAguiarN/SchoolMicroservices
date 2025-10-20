@@ -6,7 +6,11 @@ from models.nota import Nota
 # Classe responsável por controlar as ações relacionadas as notas
 class NotaController:
     
+    # Usando Blueprint para organinar Rotas
+    notas_bp = Blueprint('notas', __name__)
+
     @staticmethod
+    @notas_bp.route('/', methods=['GET'])
     def listar_notas():
         """
         Lista todas as notas cadastradas no Banco de Dados.
@@ -32,6 +36,7 @@ class NotaController:
             return jsonify(mensagem), 404
         
     @staticmethod
+    @notas_bp.route('/<int:nota_id>', methods=['GET'])
     def exibir_nota(nota_id):
         """
         Exibe os dados de uma nota específica com base no ID informado
@@ -57,6 +62,7 @@ class NotaController:
             return jsonify(mensagem), 404
         
     @staticmethod
+    @notas_bp.route('/<int:nota_id>', methods=['DELETE'])
     def deletar_nota(nota_id):
         """
         Delete os dados de uma nota específica com base no ID informado

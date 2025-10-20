@@ -5,8 +5,12 @@ from models.reserva import Reserva
 
 # Classe responsável por controlar as ações relacionadas as reservas
 class ReservaController:
+
+    # Usando Blueprint para organinar Rotas
+    reservas_bp = Blueprint('reservas', __name__)
     
     @staticmethod
+    @reservas_bp.route('/', methods=['GET'])
     def listar_reservas():
         """
         Lista todas as reservas cadastradas no Banco de Dados.
@@ -32,6 +36,7 @@ class ReservaController:
             return jsonify(mensagem), 404
         
     @staticmethod
+    @reservas_bp.route('/<int:reserva_id>', methods=['GET'])
     def exibir_reserva(reserva_id):
         """
         Exibe os dados de uma reserva específica com base no ID informado
@@ -57,6 +62,7 @@ class ReservaController:
             return jsonify(mensagem), 404
         
     @staticmethod
+    @reservas_bp.route('/<int:reserva_id>', methods=['DELETE'])
     def deletar_reserva(reserva_id):
         """
         Delete os dados de uma reserva específica com base no ID informado

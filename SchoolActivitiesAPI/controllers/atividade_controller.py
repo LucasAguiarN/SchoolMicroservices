@@ -6,7 +6,11 @@ from models.atividade import Atividade
 # Classe responsável por controlar as ações relacionadas as atividades
 class AtividadeController:
     
+    # Usando Blueprint para organinar Rotas
+    atividade_bp = Blueprint('atividades', __name__)
+
     @staticmethod
+    @atividade_bp.route('/', methods=['GET'])
     def listar_atividades():
         """
         Lista todas as atividades cadastradas no Banco de Dados.
@@ -32,6 +36,7 @@ class AtividadeController:
             return jsonify(mensagem), 404
         
     @staticmethod
+    @atividade_bp.route('/<int:atividade_id>', methods=['GET'])
     def exibir_atividade(atividade_id):
         """
         Exibe os dados de uma atividade específica com base no ID informado
@@ -57,6 +62,7 @@ class AtividadeController:
             return jsonify(mensagem), 404
         
     @staticmethod
+    @atividade_bp.route('/<int:atividade_id>', methods=['DELETE'])
     def deletar_atividade(atividade_id):
         """
         Delete os atividade de uma nota específica com base no ID informado
