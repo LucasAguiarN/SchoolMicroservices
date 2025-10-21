@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, request
 from models import db
 from models.reserva import Reserva
+from datetime import datetime
 
 
 # Classe responsável por controlar as ações relacionadas as reservas
@@ -62,6 +63,104 @@ class ReservaController:
             return jsonify(mensagem), 404
         
     @staticmethod
+    @reservas_bp.route('/', methods=['POST'])
+    def criar_reserva():
+        dados = request.json
+        if not dados:
+            return {"Erro": "Requisição Incorreta"}, 400
+
+        num_sala = dados.get("num_sala")
+        lab = True if dados.get("lab") == "True" else False
+        data = dados.get("data")
+        turma_id = dados.get("turma_id")
+
+        if (num_sala == None or lab == None or data == None or turma_id == None):
+            mensagem = {"Erro": "Formulário Incompleto!"}
+            return jsonify(mensagem), 400
+        
+        data = datetime.strptime(data, "%d/%m/%Y").date()
+
+        registro_reservas = Reserva.query.filter_by(data=data)
+        if registro_reservas:
+            for reserva in registro_reservas:
+                if (num_sala == reserva.num_sala):
+                    mensagem = {"Erro": "Sala Já Reservada nessa Data!"}
+                    return jsonify(mensagem), 409
+        
+        # Requisição para SchoolManaganer API para acessar Turmas
+        response = request.get("http://localhost:5000/turmas/{}}".format(turma_id))
+
+        # Converter JSON para Objeto
+        turma = response.json()
+
+        if (turma.erro == "Turma Não Cadastrada!"):
+                mensagem = {"Erro": "Turma Não Cadastrada!"}
+                return jsonify(mensagem), 422
+
+        nova_reserva = Reserva(
+            num_sala = num_sala,
+            lab = lab, 
+            data = data,
+            turma_id = turma_id
+        )
+
+        db.session.add(nova_reserva)
+        db.session.commit()
+
+        mensagem = {"Mensagem": "Reserva Efetuada com Sucesso!"}
+        return jsonify(mensagem), 201
+    
+    @staticmethod
+    @reservas_bp.route('/<int:reserva_id>', methods=['PUT'])
+    def atualizar_reserva(reserva_id):
+        dados = request.json
+        if not dados:
+            return {"Erro": "Requisição Incorreta"}, 400
+        
+        reserva = Reserva.query.get(reserva_id)
+        if reserva is None:
+            mensagem = {"Erro": "Reserva Não Cadastrada!"}
+            return jsonify(mensagem), 404
+
+        num_sala = dados.get("num_sala")
+        lab = True if dados.get("lab") == "True" else False
+        data = dados.get("data")
+        turma_id = dados.get("turma_id")
+
+        if (num_sala == None or lab == None or data == None or turma_id == None):
+            mensagem = {"Erro": "Formulário Incompleto!"}
+            return jsonify(mensagem), 400
+        
+        data = datetime.strptime(data, "%d/%m/%Y").date()
+
+        registro_reservas = Reserva.query.filter_by(data=data)
+        if registro_reservas:
+            for reserva in registro_reservas:
+                if (num_sala == reserva.num_sala and reserva_id != reserva.id):
+                    mensagem = {"Erro": "Sala Já Reservada nessa Data!"}
+                    return jsonify(mensagem), 409
+        
+        # Requisição para SchoolManaganer API para acessar Turmas
+        response = request.get("http://localhost:5000/turmas/{}}".format(turma_id))
+
+        # Converter JSON para Objeto
+        turma = response.json()
+
+        if (turma.erro == "Turma Não Cadastrada!"):
+                mensagem = {"Erro": "Turma Não Cadastrada!"}
+                return jsonify(mensagem), 422
+
+        reserva.num_sala = num_sala
+        reserva.lab = lab
+        reserva.data = data
+        reserva.turma_id = turma_id
+
+        db.session.commit()
+
+        mensagem = {"Mensagem": "Reserva Atualizada com Sucesso!"}
+        return jsonify(mensagem), 200
+        
+    @staticmethod
     @reservas_bp.route('/<int:reserva_id>', methods=['DELETE'])
     def deletar_reserva(reserva_id):
         """
@@ -87,5 +186,5 @@ class ReservaController:
         db.session.delete(reserva)
         db.session.commit()
             
-        mensagem = {"Mensagem": "Reserva Deletada com Sucesso!"}
+        mensagem = {"Mensagem": "Reserva Cancelada com Sucesso!"}
         return jsonify(mensagem), 200

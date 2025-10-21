@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, request
 from models import db
 from models.atividade import Atividade
+from datetime import datetime
 
 
 # Classe responsável por controlar as ações relacionadas as atividades
@@ -60,6 +61,120 @@ class AtividadeController:
         else:
             mensagem = {"Erro": "Atividade Não Cadastrada!"}
             return jsonify(mensagem), 404
+        
+    @staticmethod
+    @atividade_bp.route('/', methods=['POST'])
+    def criar_atividade():
+        dados = request.json
+        if not dados:
+            return {"Erro": "Requisição Incorreta"}, 400
+
+        nome_atividade = dados.get("num_sala")
+        descricao = dados.get("descricao")
+        peso_porcentagem = dados.get("peso_porcentagem")
+        data = dados.get("data_entrega")
+        turma_id = dados.get("turma_id")
+        professor_id = dados.get("professor_id")
+
+        if (nome_atividade == None or descricao == None or peso_porcentagem == None or data == None or turma_id == None or professor_id == None):
+            mensagem = {"Erro": "Formulário Incompleto!"}
+            return jsonify(mensagem), 400
+        
+        data_entrega = datetime.strptime(data, "%d/%m/%Y").date()
+
+        registro_atividades = Atividade.query.filter_by(data_entrega=data_entrega)
+        if registro_atividades:
+            for atividade in registro_atividades:
+                if (nome_atividade == atividade.nome_atividade):
+                    mensagem = {"Erro": "Atividade dessa Data Já Cadastrada!"}
+                    return jsonify(mensagem), 409
+        
+        # Requisição para SchoolManaganer API para acessar Turmas
+        response = request.get("http://localhost:5000/turmas/{}}".format(turma_id))
+
+        # Converter JSON para Objeto
+        turma = response.json()
+
+        if (turma.erro == "Turma Não Cadastrada!"):
+            mensagem = {"Erro": "Turma Não Cadastrada!"}
+            return jsonify(mensagem), 422
+        
+        if (turma.professor_id != professor_id):
+            mensagem = {"Erro": "Professor Informado Incorreto!"}
+            return jsonify(mensagem), 422
+
+        nova_atividade = Atividade(
+            nome_atividade = nome_atividade,
+            descricao = descricao, 
+            peso_porcentagem = peso_porcentagem,
+            data_entrega = data_entrega,
+            turma_id = turma_id,
+            professor_id = professor_id
+        )
+
+        db.session.add(nova_atividade)
+        db.session.commit()
+
+        mensagem = {"Mensagem": "Atividade Cadastrada com Sucesso!"}
+        return jsonify(mensagem), 201
+    
+    @staticmethod
+    @atividade_bp.route('/<int:atividade_id>', methods=['PUT'])
+    def atualizar_reserva(atividade_id):
+        dados = request.json
+        if not dados:
+            return {"Erro": "Requisição Incorreta"}, 400
+        
+        atividade = Atividade.query.get(atividade_id)
+        if atividade is None:
+            mensagem = {"Erro": "Atividade Não Cadastrada!"}
+            return jsonify(mensagem), 404
+
+        nome_atividade = dados.get("num_sala")
+        descricao = dados.get("descricao")
+        peso_porcentagem = dados.get("peso_porcentagem")
+        data = dados.get("data_entrega")
+        turma_id = dados.get("turma_id")
+        professor_id = dados.get("professor_id")
+
+        if (nome_atividade == None or descricao == None or peso_porcentagem == None or data == None or turma_id == None or professor_id == None):
+            mensagem = {"Erro": "Formulário Incompleto!"}
+            return jsonify(mensagem), 400
+        
+        data_entrega = datetime.strptime(data, "%d/%m/%Y").date()
+
+        registro_atividades = Atividade.query.filter_by(data_entrega=data_entrega)
+        if registro_atividades:
+            for atividade in registro_atividades:
+                if (nome_atividade == atividade.nome_atividade):
+                    mensagem = {"Erro": "Atividade dessa Data Já Cadastrada!"}
+                    return jsonify(mensagem), 409
+        
+        # Requisição para SchoolManaganer API para acessar Turmas
+        response = request.get("http://localhost:5000/turmas/{}}".format(turma_id))
+
+        # Converter JSON para Objeto
+        turma = response.json()
+
+        if (turma.erro == "Turma Não Cadastrada!"):
+            mensagem = {"Erro": "Turma Não Cadastrada!"}
+            return jsonify(mensagem), 422
+        
+        if (turma.professor_id != professor_id):
+            mensagem = {"Erro": "Professor Informado Incorreto!"}
+            return jsonify(mensagem), 422
+
+        atividade.nome_atividade = nome_atividade
+        atividade.descricao = descricao
+        atividade.peso_porcentagem = peso_porcentagem
+        atividade.data_entrega = data_entrega,
+        atividade.turma_id = turma_id,
+        atividade.professor_id = professor_id
+
+        db.session.commit()
+
+        mensagem = {"Mensagem": "Atividade Atualizada com Sucesso!"}
+        return jsonify(mensagem), 200
         
     @staticmethod
     @atividade_bp.route('/<int:atividade_id>', methods=['DELETE'])
