@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  SchoolManagerAPI:
+    build: ./SchoolManagerAPI
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./SchoolManagerAPI:/app
+    depends_on:
+      - SchoolActivitiesAPI
+      - SchoolReservationAPI
+    container_name: poc_SchoolManagerAPI
+
+  SchoolActivitiesAPI:
+    build: ./SchoolActivitiesAPI
+    expose:
+      - "5001"
+    volumes:
+      - ./SchoolActivitiesAPI:/app
+    container_name: poc_SchoolActivitiesAPI
+
+  SchoolReservationAPI:
+    build: ./SchoolReservationAPI
+    expose:
+      - "5002"
+    volumes:
+      - ./SchoolReservationAPI:/app
+    container_name: poc_SchoolReservationAPI

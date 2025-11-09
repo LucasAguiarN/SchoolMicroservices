@@ -3,8 +3,8 @@
 <h3 align="center"><img  alt="Faculdade Impacta" width = "400px" src="https://www.impacta.edu.br/themes/wc_agenciar3/images/logo-new.png"></h3>
 
 <p>
-    <img src="https://img.shields.io/badge/Status-Inicio_Desenvolvimento-yellow" alt="Status = Inicio Desenvolvimento">
-    <img src="https://img.shields.io/badge/Documentação-Em_Andamento-yellow" alt="Documentação: Em Andamento">
+    <img src="https://img.shields.io/badge/Status-Concluído-brightgreen" alt="Status = Concluído">
+    <img src="https://img.shields.io/badge/Documentação-Completa-brightgreen" alt="Documentação: Completa">
     <img src="https://img.shields.io/badge/License-MIT-blue" alt="License = MIT">
 </p>
 
@@ -53,6 +53,14 @@ Sistema de Microsserviços referente ao Projeto Acadêmico da Disciplina de Dese
 </table>
 
 <h2 id="requisitos">📦 Requisitos</h2>
+
+[![Docker](https://badgen.net/badge/icon/docker?icon=docker&label)](https://https://docker.com/)<br>
+Tenha o Docker instalado caso queria rodar o projeto num container
+
+No diretório raiz do projeto, construa as imagens dos containers via Docker Compose
+```bash
+docker-compose up --build
+```
 
 <h2 id="arquitetura">🧩 Arquitetura do Sistema</h2>
 SchoolMicroservices<br>
