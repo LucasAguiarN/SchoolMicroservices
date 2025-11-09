@@ -21,6 +21,7 @@
     <a href="#grupo">Integrantes do Grupo</a> •
     <a href="#requisitos">Requisitos</a> •
     <a href="#arquitetura">Arquitetura do Sistema</a> •
+    <a href="sistema">Funcionalidades</a> •
     <a href="#licença">Licença</a>
 </p>
 
@@ -63,10 +64,61 @@ docker-compose up --build
 ```
 
 <h2 id="arquitetura">🧩 Arquitetura do Sistema</h2>
-SchoolMicroservices<br>
-&nbsp;&nbsp;&nbsp;SchoolManagerAPI<br>
-&nbsp;&nbsp;&nbsp;SchoolReservationAPI<br>
-&nbsp;&nbsp;&nbsp;SchoolActivitiesAPI
+📦SchoolMicroservices<br>
+ ┣ 🧩SchoolActivitiesAPI<br>
+ ┃ ┣ 📂controllers<br>
+ ┃ ┃ ┣ 📜atividade_controller.py<br>
+ ┃ ┃ ┗ 📜nota_controller.py<br>
+ ┃ ┣ 📂models<br>
+ ┃ ┃ ┣ 📜__init__.py<br>
+ ┃ ┃ ┣ 📜atividade.py<br>
+ ┃ ┃ ┗ 📜nota.py<br>
+ ┃ ┣ 🚀app.py<br>
+ ┃ ┣ ⚙️config.py<br>
+ ┃ ┣ 🐳Dockerfile<br>
+ ┃ ┣ 📖README.md<br>
+ ┃ ┣ 📦requirements.txt<br>
+ ┃ ┗ 📑swagger.yml<br>
+ ┣ 🧩SchoolManagerAPI<br>
+ ┃ ┣ 📂controllers<br>
+ ┃ ┃ ┣ 📜aluno_controller.py<br>
+ ┃ ┃ ┣ 📜professor_controller.py<br>
+ ┃ ┃ ┗ 📜turma_controller.py<br>
+ ┃ ┣ 📂models<br>
+ ┃ ┃ ┣ 📜__init__.py<br>
+ ┃ ┃ ┣ 📜aluno.py<br>
+ ┃ ┃ ┣ 📜professor.py<br>
+ ┃ ┃ ┗ 📜turma.py<br>
+ ┃ ┣ 📜.gitignore<br>
+ ┃ ┣ 🚀app.py<br>
+ ┃ ┣ ⚙️config.py<br>
+ ┃ ┣ 🐳Dockerfile<br>
+ ┃ ┣ 📜LICENSE<br>
+ ┃ ┣ 📖README.md<br>
+ ┃ ┣ 📦requirements.txt<br>
+ ┃ ┗ 📑swagger.yml<br>
+ ┣ 🧩SchoolReservationAPI<br>
+ ┃ ┣ 📂controllers<br>
+ ┃ ┃ ┗ 📜reserva_controller.py<br>
+ ┃ ┣ 📂models<br>
+ ┃ ┃ ┣ 📜__init__.py<br>
+ ┃ ┃ ┗ 📜reserva.py<br>
+ ┃ ┣ 🚀app.py<br>
+ ┃ ┣ ⚙️config.py<br>
+ ┃ ┣ 🐳Dockerfile<br>
+ ┃ ┣ 📖README.md<br>
+ ┃ ┣ 📦requirements.txt<br>
+ ┃ ┗ 📑swagger.yml<br>
+ ┣ 🚫.gitignore<br>
+ ┣ 🐳docker-compose.yml<br>
+ ┣ ⚖️LICENSE<br>
+ ┗ 📖README.md<br>
+
+<h2 id="sistema">⚙️ Funcionalidades</h2>
+Para utilização do Sistema e Endpoints, pode verificar a documentação disponível de cada microserviço:
+<br><a href="./SchoolActivitiesAPI/README.md">SchoolActivitiesAPI</a>
+<br><a href="./SchoolManagerAPI/README.md">SchoolManagerAPI</a>
+<br><a href="./SchoolReservationAPI/README.md">SchoolReservationAPI</a>
 
 <h2 id="licença">📜 Licença</h2>
 Este projeto é para fins educacionais e está disponível sob a <a href="./LICENSE">Licença MIT.</a>
