@@ -97,7 +97,7 @@ class AtividadeController:
 
         if (turma.erro == "Turma Não Cadastrada!"):
             mensagem = {"Erro": "Turma Não Cadastrada!"}
-            return jsonify(mensagem), 422
+            return jsonify(mensagem), 404
         
         if (turma.professor_id != professor_id):
             mensagem = {"Erro": "Professor Informado Incorreto!"}
@@ -158,7 +158,7 @@ class AtividadeController:
 
         if (turma.erro == "Turma Não Cadastrada!"):
             mensagem = {"Erro": "Turma Não Cadastrada!"}
-            return jsonify(mensagem), 422
+            return jsonify(mensagem), 424
         
         if (turma.professor_id != professor_id):
             mensagem = {"Erro": "Professor Informado Incorreto!"}

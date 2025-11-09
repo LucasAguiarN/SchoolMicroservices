@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, request
 from models import db
 from models.nota import Nota
+from models.atividade import Atividade
 
 
 # Classe responsável por controlar as ações relacionadas as notas
@@ -60,6 +61,92 @@ class NotaController:
         else:
             mensagem = {"Erro": "Nota Não Cadastrada!"}
             return jsonify(mensagem), 404
+        
+    @staticmethod
+    @notas_bp.route('/', methods=['POST'])
+    def criar_nota():
+        dados = request.json
+        if not dados:
+            return {"Erro": "Requisição Incorreta"}, 400
+
+        nota = dados.get("nota")
+        aluno_id = dados.get("aluno_id")
+        atividade_id = dados.get("atividade_id")
+
+        if (nota == None or aluno_id == None or atividade_id == None):
+            mensagem = {"Erro": "Formulário Incompleto!"}
+            return jsonify(mensagem), 400
+
+        registro_atividade = Atividade.query.filter_by(id=atividade_id)
+        if not registro_atividade:
+            mensagem = {"Erro": "Atividade Não Cadastrada!"}
+            return jsonify(mensagem), 422
+        
+        # Requisição para SchoolManaganer API para acessar Aluno
+        response = request.get("http://localhost:5000/alunos/{}}".format(aluno_id))
+
+        # Converter JSON para Objeto
+        aluno = response.json()
+
+        if (aluno.erro == "Aluno Não Cadastrado!"):
+            mensagem = {"Erro": "Aluno Não Cadastrado!"}
+            return jsonify(mensagem), 404
+
+        nova_nota = Nota(
+            nota = nota,
+            aluno_id = aluno_id, 
+            atividade_id = atividade_id
+        )
+
+        db.session.add(nova_nota)
+        db.session.commit()
+
+        mensagem = {"Mensagem": "Nota Cadastrada com Sucesso!"}
+        return jsonify(mensagem), 201
+    
+    @staticmethod
+    @notas_bp.route('/<int:nota_id>', methods=['PUT'])
+    def atualizar_nota(nota_id):
+        dados = request.json
+        if not dados:
+            return {"Erro": "Requisição Incorreta"}, 400
+        
+        nota = Atividade.query.get(nota_id)
+        if nota is None:
+            mensagem = {"Erro": "Nota Não Cadastrada!"}
+            return jsonify(mensagem), 404
+
+        nota_atualizada = dados.get("nota")
+        aluno_id = dados.get("aluno_id")
+        atividade_id = dados.get("atividade_id")
+
+        if (nota_atualizada == None or aluno_id == None or atividade_id == None):
+            mensagem = {"Erro": "Formulário Incompleto!"}
+            return jsonify(mensagem), 400
+
+        registro_atividade = Atividade.query.filter_by(id=atividade_id)
+        if not registro_atividade:
+            mensagem = {"Erro": "Atividade Não Cadastrada!"}
+            return jsonify(mensagem), 422
+        
+        # Requisição para SchoolManaganer API para acessar Aluno
+        response = request.get("http://localhost:5000/alunos/{}}".format(aluno_id))
+
+        # Converter JSON para Objeto
+        aluno = response.json()
+
+        if (aluno.erro == "Aluno Não Cadastrado!"):
+            mensagem = {"Erro": "Aluno Não Cadastrado!"}
+            return jsonify(mensagem), 424
+
+        nota.nota = nota_atualizada
+        nota.aluno_id = aluno_id
+        nota.atividade_id = atividade_id
+
+        db.session.commit()
+
+        mensagem = {"Mensagem": "Nota Atualizada com Sucesso!"}
+        return jsonify(mensagem), 200
         
     @staticmethod
     @notas_bp.route('/<int:nota_id>', methods=['DELETE'])
