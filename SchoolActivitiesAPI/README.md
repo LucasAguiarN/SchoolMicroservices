@@ -3,8 +3,8 @@
 <h3 align="center"><img  alt="Faculdade Impacta" width = "400px" src="https://www.impacta.edu.br/themes/wc_agenciar3/images/logo-new.png"></h3>
 
 <p>
-    <img src="https://img.shields.io/badge/Status-Inicio_Desenvolvimento-yellow" alt="Status = Inicio Desenvolvimento">
-    <img src="https://img.shields.io/badge/Documentação-Em_Andamento-yellow" alt="Documentação: Em Andamento">
+    <img src="https://img.shields.io/badge/Status-Concluído-brightgreen" alt="Status = Concluído">
+    <img src="https://img.shields.io/badge/Documentação-Completa-brightgreen" alt="Documentação: Completa">
     <img src="https://img.shields.io/badge/License-MIT-blue" alt="License = MIT">
 </p>
 
@@ -68,7 +68,12 @@ Cadastro de Atividade
 curl -X POST http://localhost:5001/atividades \
     -H "Content-Type: application/json" \
     -d '{
-            ""
+            "nome_atividade": "Laboratório",
+            "descricao": "Laboratorio de Redes",
+            "peso_porcentagem": "1",
+            "data_entrega": "05/11/2025",
+            "turma_id": "1",
+            "professor_id": "1"
         }'
 ```
 Exibir Atividade
@@ -80,7 +85,12 @@ Atualizar Atividade
 curl -X PUT http://localhost:5001/atividades/{atividade_id} \
     -H "Content-Type: application/json" \
     -d '{
-            ""
+            "nome_atividade": "Labpratório de Redes 1",
+            "descricao": "Laboratorio de Redes",
+            "peso_porcentagem": "1",
+            "data_entrega": "06/11/2025",
+            "turma_id": "1",
+            "professor_id": "1"
         }'
 ```
 Deletar Atividade
@@ -96,7 +106,9 @@ Cadastro de Nota
 curl -X POST http://localhost:5001/notas \
     -H "Content-Type: application/json" \
     -d '{
-            ""     
+            "nota": "10",
+            "aluno_id": "1",
+            "atividade_id": "1"    
         }'
 ```
 Exibir Nota
@@ -108,7 +120,9 @@ Atualizar Nota
 curl -X PUT http://localhost:5001/notas/{nota_id} \
     -H "Content-Type: application/json" \
     -d '{
-            ""
+            "nota": "8",
+            "aluno_id": "1",
+            "atividade_id": "1" 
         }'
 ```
 Deletar Nota

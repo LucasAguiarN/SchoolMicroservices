@@ -3,8 +3,8 @@
 <h3 align="center"><img  alt="Faculdade Impacta" width = "400px" src="https://www.impacta.edu.br/themes/wc_agenciar3/images/logo-new.png"></h3>
 
 <p>
-    <img src="https://img.shields.io/badge/Status-Inicio_Desenvolvimento-yellow" alt="Status = Inicio Desenvolvimento">
-    <img src="https://img.shields.io/badge/Documentação-Em_Andamento-yellow" alt="Documentação: Em Andamento">
+    <img src="https://img.shields.io/badge/Status-Concluído-brightgreen" alt="Status = Concluído">
+    <img src="https://img.shields.io/badge/Documentação-Completa-brightgreen" alt="Documentação: Completa">
     <img src="https://img.shields.io/badge/License-MIT-blue" alt="License = MIT">
 </p>
 
@@ -67,7 +67,10 @@ Cadastro de Reserva
 curl -X POST http://localhost:5002/reservas \
     -H "Content-Type: application/json" \
     -d '{
-            ""
+            "num_sala": "101",
+            "lab": "True",
+            "data": "10/10/2025,
+            "turma_id": "1"
         }'
 ```
 Exibir Reserva
@@ -79,7 +82,10 @@ Atualizar Reserva
 curl -X PUT http://localhost:5002/reservas/{reserva_id} \
     -H "Content-Type: application/json" \
     -d '{
-            ""
+            "num_sala": "202",
+            "lab": "False",
+            "data": "10/10/2025,
+            "turma_id": "1"
         }'
 ```
 Deletar Reserva
