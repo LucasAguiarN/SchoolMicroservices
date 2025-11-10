@@ -17,6 +17,7 @@ ENV FLASK_APP=app.py
 # Define o host em que o Flask vai rodar
 # 0.0.0.0 permite acesso fora do container
 ENV FLASK_RUN_HOST=0.0.0.0
+ENV FLASK_RUN_PORT=5000
 
 # Copia todo o conteúdo do diretório atual do projeto para dentro do container
 COPY . .
