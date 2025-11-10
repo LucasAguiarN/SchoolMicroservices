@@ -1,4 +1,5 @@
 from flask import Blueprint, jsonify, request
+import requests
 from models import db
 from models.atividade import Atividade
 from datetime import datetime
@@ -69,7 +70,7 @@ class AtividadeController:
         if not dados:
             return {"Erro": "Requisição Incorreta"}, 400
 
-        nome_atividade = dados.get("num_sala")
+        nome_atividade = dados.get("nome_atividade")
         descricao = dados.get("descricao")
         peso_porcentagem = dados.get("peso_porcentagem")
         data = dados.get("data_entrega")
@@ -90,16 +91,16 @@ class AtividadeController:
                     return jsonify(mensagem), 409
         
         # Requisição para SchoolManaganer API para acessar Turmas
-        response = request.get("http://localhost:5000/turmas/{}}".format(turma_id))
+        response = requests.get("http://schoolmanager:5000/turmas/{}".format(turma_id))
+
+        if response.status_code != 200:
+            mensagem = {"Erro": "Turma Não Cadastrada!"}
+            return jsonify(mensagem), 404
 
         # Converter JSON para Objeto
         turma = response.json()
-
-        if (turma.erro == "Turma Não Cadastrada!"):
-            mensagem = {"Erro": "Turma Não Cadastrada!"}
-            return jsonify(mensagem), 404
         
-        if (turma.professor_id != professor_id):
+        if turma['professor_id'] != professor_id:
             mensagem = {"Erro": "Professor Informado Incorreto!"}
             return jsonify(mensagem), 422
 
@@ -130,7 +131,7 @@ class AtividadeController:
             mensagem = {"Erro": "Atividade Não Cadastrada!"}
             return jsonify(mensagem), 404
 
-        nome_atividade = dados.get("num_sala")
+        nome_atividade = dados.get("nome_atividade")
         descricao = dados.get("descricao")
         peso_porcentagem = dados.get("peso_porcentagem")
         data = dados.get("data_entrega")
@@ -151,16 +152,16 @@ class AtividadeController:
                     return jsonify(mensagem), 409
         
         # Requisição para SchoolManaganer API para acessar Turmas
-        response = request.get("http://localhost:5000/turmas/{}}".format(turma_id))
+        response = requests.get("http://schoolmanager:5000/turmas/{}".format(turma_id))
+
+        if response.status_code != 200:
+            mensagem = {"Erro": "Turma Não Cadastrada!"}
+            return jsonify(mensagem), 424
 
         # Converter JSON para Objeto
         turma = response.json()
-
-        if (turma.erro == "Turma Não Cadastrada!"):
-            mensagem = {"Erro": "Turma Não Cadastrada!"}
-            return jsonify(mensagem), 424
         
-        if (turma.professor_id != professor_id):
+        if turma['professor_id'] != professor_id:
             mensagem = {"Erro": "Professor Informado Incorreto!"}
             return jsonify(mensagem), 422
 

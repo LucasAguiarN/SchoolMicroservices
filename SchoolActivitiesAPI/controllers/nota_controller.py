@@ -1,4 +1,5 @@
 from flask import Blueprint, jsonify, request
+import requests
 from models import db
 from models.nota import Nota
 from models.atividade import Atividade
@@ -83,12 +84,9 @@ class NotaController:
             return jsonify(mensagem), 422
         
         # Requisição para SchoolManaganer API para acessar Aluno
-        response = request.get("http://localhost:5000/alunos/{}}".format(aluno_id))
+        response = requests.get("http://schoolmanager:5000/alunos/{}".format(aluno_id))
 
-        # Converter JSON para Objeto
-        aluno = response.json()
-
-        if (aluno.erro == "Aluno Não Cadastrado!"):
+        if response.status_code != 200:
             mensagem = {"Erro": "Aluno Não Cadastrado!"}
             return jsonify(mensagem), 404
 
@@ -130,12 +128,9 @@ class NotaController:
             return jsonify(mensagem), 422
         
         # Requisição para SchoolManaganer API para acessar Aluno
-        response = request.get("http://localhost:5000/alunos/{}}".format(aluno_id))
+        response = requests.get("http://schoolmanager:5000/alunos/{}".format(aluno_id))
 
-        # Converter JSON para Objeto
-        aluno = response.json()
-
-        if (aluno.erro == "Aluno Não Cadastrado!"):
+        if response.status_code != 200:
             mensagem = {"Erro": "Aluno Não Cadastrado!"}
             return jsonify(mensagem), 424
 

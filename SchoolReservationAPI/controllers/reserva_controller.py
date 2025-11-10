@@ -1,4 +1,5 @@
 from flask import Blueprint, jsonify, request
+import requests
 from models import db
 from models.reserva import Reserva
 from datetime import datetime
@@ -88,14 +89,11 @@ class ReservaController:
                     return jsonify(mensagem), 409
         
         # Requisição para SchoolManaganer API para acessar Turmas
-        response = request.get("http://localhost:5000/turmas/{}}".format(turma_id))
+        response = requests.get("http://schoolmanager:5000/turmas/{}".format(turma_id))
 
-        # Converter JSON para Objeto
-        turma = response.json()
-
-        if (turma.erro == "Turma Não Cadastrada!"):
-                mensagem = {"Erro": "Turma Não Cadastrada!"}
-                return jsonify(mensagem), 422
+        if response.status_code != 200:
+            mensagem = {"Erro": "Turma Não Cadastrada!"}
+            return jsonify(mensagem), 422
 
         nova_reserva = Reserva(
             num_sala = num_sala,
@@ -141,14 +139,11 @@ class ReservaController:
                     return jsonify(mensagem), 409
         
         # Requisição para SchoolManaganer API para acessar Turmas
-        response = request.get("http://localhost:5000/turmas/{}}".format(turma_id))
+        response = request.get("http://schoolmanager:5000/turmas/{}".format(turma_id))
 
-        # Converter JSON para Objeto
-        turma = response.json()
-
-        if (turma.erro == "Turma Não Cadastrada!"):
-                mensagem = {"Erro": "Turma Não Cadastrada!"}
-                return jsonify(mensagem), 422
+        if response.status_code != 200:
+            mensagem = {"Erro": "Turma Não Cadastrada!"}
+            return jsonify(mensagem), 422
 
         reserva.num_sala = num_sala
         reserva.lab = lab
