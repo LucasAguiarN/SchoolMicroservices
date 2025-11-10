@@ -69,7 +69,7 @@ curl -X POST http://localhost:5002/reservas \
     -d '{
             "num_sala": "101",
             "lab": "True",
-            "data": "10/10/2025,
+            "data": "10/10/2025",
             "turma_id": "1"
         }'
 ```
@@ -84,7 +84,7 @@ curl -X PUT http://localhost:5002/reservas/{reserva_id} \
     -d '{
             "num_sala": "202",
             "lab": "False",
-            "data": "10/10/2025,
+            "data": "10/10/2025",
             "turma_id": "1"
         }'
 ```
