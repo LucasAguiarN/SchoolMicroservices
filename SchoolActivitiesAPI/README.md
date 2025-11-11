@@ -73,7 +73,7 @@ curl -X POST http://localhost:5001/atividades \
             "peso_porcentagem": "1",
             "data_entrega": "05/11/2025",
             "turma_id": "1",
-            "professor_id": "1"
+            "professor_id": 1
         }'
 ```
 Exibir Atividade
@@ -90,7 +90,7 @@ curl -X PUT http://localhost:5001/atividades/{atividade_id} \
             "peso_porcentagem": "1",
             "data_entrega": "06/11/2025",
             "turma_id": "1",
-            "professor_id": "1"
+            "professor_id": 1
         }'
 ```
 Deletar Atividade
