@@ -4,11 +4,6 @@ info:
   description: Documentação para utilização do School Reservation API, API RESTful construída com Flask para realizar o gerenciamento de Reservas de Salas de uma instituição de ensino.
   version: "1.0.0"
 
-host: 127.0.0.1:5002
-basePath: /
-schemes:
-  - http
-
 tags:
   - name: Reservas
     description: Operações Relacionadas a Entidade Reservas

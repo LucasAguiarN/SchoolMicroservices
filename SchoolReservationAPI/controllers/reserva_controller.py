@@ -1,4 +1,5 @@
 from flask import Blueprint, jsonify, request
+from flasgger import swag_from
 import requests
 from models import db
 from models.reserva import Reserva
@@ -13,6 +14,7 @@ class ReservaController:
     
     @staticmethod
     @reservas_bp.route('/', methods=['GET'])
+    @swag_from('./swagger.yml', endpoint='/reservas', methods=['GET'])
     def listar_reservas():
         """
         Lista todas as reservas cadastradas no Banco de Dados.
@@ -39,6 +41,7 @@ class ReservaController:
         
     @staticmethod
     @reservas_bp.route('/<int:reserva_id>', methods=['GET'])
+    @swag_from('./swagger.yml', endpoint='/reservas/<int:reserva_id>', methods=['GET'])
     def exibir_reserva(reserva_id):
         """
         Exibe os dados de uma reserva específica com base no ID informado
@@ -65,6 +68,7 @@ class ReservaController:
         
     @staticmethod
     @reservas_bp.route('/', methods=['POST'])
+    @swag_from('./swagger.yml', endpoint='/reservas', methods=['POST'])
     def criar_reserva():
         dados = request.json
         if not dados:
@@ -110,6 +114,7 @@ class ReservaController:
     
     @staticmethod
     @reservas_bp.route('/<int:reserva_id>', methods=['PUT'])
+    @swag_from('./swagger.yml', endpoint='/reservas/<int:reserva_id>', methods=['PUT'])
     def atualizar_reserva(reserva_id):
         dados = request.json
         if not dados:
@@ -157,6 +162,7 @@ class ReservaController:
         
     @staticmethod
     @reservas_bp.route('/<int:reserva_id>', methods=['DELETE'])
+    @swag_from('./swagger.yml', endpoint='/reservas/<int:reserva_id>', methods=['DELETE'])
     def deletar_reserva(reserva_id):
         """
         Delete os dados de uma reserva específica com base no ID informado

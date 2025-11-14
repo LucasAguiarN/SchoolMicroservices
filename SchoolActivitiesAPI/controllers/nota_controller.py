@@ -1,4 +1,5 @@
 from flask import Blueprint, jsonify, request
+from flasgger import swag_from
 import requests
 from models import db
 from models.nota import Nota
@@ -13,6 +14,7 @@ class NotaController:
 
     @staticmethod
     @notas_bp.route('/', methods=['GET'])
+    @swag_from('./swagger.yml', endpoint='/notas', methods=['GET'])
     def listar_notas():
         """
         Lista todas as notas cadastradas no Banco de Dados.
@@ -39,6 +41,7 @@ class NotaController:
         
     @staticmethod
     @notas_bp.route('/<int:nota_id>', methods=['GET'])
+    @swag_from('./swagger.yml', endpoint='/notas/<int:nota_id>', methods=['GET'])
     def exibir_nota(nota_id):
         """
         Exibe os dados de uma nota específica com base no ID informado
@@ -65,6 +68,7 @@ class NotaController:
         
     @staticmethod
     @notas_bp.route('/', methods=['POST'])
+    @swag_from('./swagger.yml', endpoint='/notas', methods=['POST'])
     def criar_nota():
         dados = request.json
         if not dados:
@@ -104,6 +108,7 @@ class NotaController:
     
     @staticmethod
     @notas_bp.route('/<int:nota_id>', methods=['PUT'])
+    @swag_from('./swagger.yml', endpoint='/notas/<int:nota_id>', methods=['PUT'])
     def atualizar_nota(nota_id):
         dados = request.json
         if not dados:
@@ -145,6 +150,7 @@ class NotaController:
         
     @staticmethod
     @notas_bp.route('/<int:nota_id>', methods=['DELETE'])
+    @swag_from('./swagger.yml', endpoint='/notas/<int:nota_id>', methods=['DELETE'])
     def deletar_nota(nota_id):
         """
         Delete os dados de uma nota específica com base no ID informado

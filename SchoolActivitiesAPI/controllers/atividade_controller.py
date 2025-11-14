@@ -1,4 +1,5 @@
 from flask import Blueprint, jsonify, request
+from flasgger import swag_from
 import requests
 from models import db
 from models.atividade import Atividade
@@ -13,6 +14,7 @@ class AtividadeController:
 
     @staticmethod
     @atividade_bp.route('/', methods=['GET'])
+    @swag_from('./swagger.yml', endpoint='/atividades', methods=['GET'])
     def listar_atividades():
         """
         Lista todas as atividades cadastradas no Banco de Dados.
@@ -39,6 +41,7 @@ class AtividadeController:
         
     @staticmethod
     @atividade_bp.route('/<int:atividade_id>', methods=['GET'])
+    @swag_from('./swagger.yml', endpoint='/atividades/<int:atividade_id>', methods=['GET'])
     def exibir_atividade(atividade_id):
         """
         Exibe os dados de uma atividade específica com base no ID informado
@@ -65,6 +68,7 @@ class AtividadeController:
         
     @staticmethod
     @atividade_bp.route('/', methods=['POST'])
+    @swag_from('./swagger.yml', endpoint='/atividades', methods=['POST'])
     def criar_atividade():
         dados = request.json
         if not dados:
@@ -121,6 +125,7 @@ class AtividadeController:
     
     @staticmethod
     @atividade_bp.route('/<int:atividade_id>', methods=['PUT'])
+    @swag_from('./swagger.yml', endpoint='/atividades/<int:atividade_id>', methods=['PUT'])
     def atualizar_reserva(atividade_id):
         dados = request.json
         if not dados:
@@ -179,6 +184,7 @@ class AtividadeController:
         
     @staticmethod
     @atividade_bp.route('/<int:atividade_id>', methods=['DELETE'])
+    @swag_from('./swagger.yml', endpoint='/atividades/<int:atividade_id>', methods=['DELETE'])
     def deletar_atividade(atividade_id):
         """
         Delete os atividade de uma nota específica com base no ID informado
