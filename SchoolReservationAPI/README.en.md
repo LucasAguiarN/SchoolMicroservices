@@ -1,10 +1,10 @@
 <h1 align="center"; style="font-weight: bold;">School Reservation API</h1>
 
-<h3 align="center"><img  alt="Faculdade Impacta" width = "400px" src="https://www.impacta.edu.br/themes/wc_agenciar3/images/logo-new.png"></h3>
+<h3 align="center"><img  alt="Impacta College" width = "400px" src="https://www.impacta.edu.br/themes/wc_agenciar3/images/logo-new.png"></h3>
 
 <p>
-    <img src="https://img.shields.io/badge/Status-Concluído-brightgreen" alt="Status = Concluído">
-    <img src="https://img.shields.io/badge/Documentação-Completa-brightgreen" alt="Documentação: Completa">
+    <img src="https://img.shields.io/badge/Status-Completed-brightgreen" alt="Status = Completed">
+    <img src="https://img.shields.io/badge/Documentation-Complete-brightgreen" alt="Documentation: Complete">
     <img src="https://img.shields.io/badge/License-MIT-blue" alt="License = MIT">
     <a href="./README.md" target="_blank"><img title="PT-BR" src="https://img.shields.io/badge/docs-pt--BR-blue" alt="README PT-BR"></a>
     <a href="./README.en.md" target="_blank"><img title="EN-US" src="https://img.shields.io/badge/docs-en--US-blue" alt="README EN-US"></a>
@@ -19,40 +19,40 @@
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
 <p align="center">
-    <a href="#sobre">Sobre</a> • 
-    <a href="#requisitos">Requisitos</a> •
-    <a href="#arquitetura">Arquitetura do Sistema</a> •
-    <a href="#how-it-works">Funcionalidades</a> •
-    <a href="#endpoints">Endpoints da API</a>
+    <a href="#about">About</a> • 
+    <a href="#requirements">Requirements</a> •
+    <a href="#architecture">System Architecture</a> •
+    <a href="#how-it-works">Features</a> •
+    <a href="#endpoints">API Endpoints</a>
 </p>
 
-<h2 id="sobre">📖 Sobre</h2>
-API referente ao Projeto Acadêmico da Disciplina de Desenvolvimento de APIs e Microsserviços, ministrada pelo professor Giovani Bontempo na Faculdade Impacta, durante o terceiro semestre do curso Análise e Desenvolvimento de Sistemas cursado no 2º Semestre de 2025.
-<br><br>O projeto consiste em uma API RESTful construída com Flask para realizar o gerenciamento de Reservas em uma instituição de ensino.
+<h2 id="about">📖 About</h2>
+API for the Academic Project of the API and Microservices Development course, taught by professor Giovani Bontempo at Impacta College, during the third semester of the Systems Analysis and Development program, taken in the 2nd semester of 2025.
+<br><br>The project consists of a RESTful API built with Flask to manage Reservations at an educational institution.
 <br>
 
-<h2 id="requisitos">📦 Requisitos</h2>
+<h2 id="requirements">📦 Requirements</h2>
 
 [![Docker](https://badgen.net/badge/icon/docker?icon=docker&label)](https://https://docker.com/) <img src="https://img.shields.io/badge/python-3.13.2-blue" alt="Python = 3.13.2"><br>
 
-Tenha o Docker instalado caso queria rodar o projeto num container
+Make sure Docker is installed if you want to run the project in a container
 
-No diretório raiz do projeto, construa a imagem do container
+In the project's root directory, build the container image
 ```bash
 docker build -t school-reservation .
 ```
-Execute o container
+Run the container
 ```bash
 docker run --name school-reservation-container -p 5002:5002 school-reservation
 ```
 
-Para rodar localmente sem ser via container tenho o Python instalado e no diretório raiz do projeto execute o comando para instalar as bibliotecas<br>
+To run locally without a container, make sure Python is installed, and in the project's root directory run the command to install the libraries<br>
 
 ```bash
 pip install -r requirements.txt
 ```
 
-<h2 id="arquitetura">🧩 Arquitetura do Sistema</h2>
+<h2 id="architecture">🧩 System Architecture</h2>
 📦SchoolReservationAPI<br>
  ┣ 📂controllers<br>
  ┃ ┗ 📜reserva_controller.py<br>
@@ -66,20 +66,20 @@ pip install -r requirements.txt
  ┣ 🧩requirements.txt<br>
  ┗ 📑swagger.yml<br>
 
-<h2 id="how-it-works">⚙️ Funcionalidades</h2>
-🔹 CRUD de Reservas (Cadastro, Listagem, Atualização e Exclusão)
+<h2 id="how-it-works">⚙️ Features</h2>
+🔹 Reservation CRUD (Create, List, Update, and Delete)
 
-<h2 id="endpoints">🛠️ Endpoints da API</h2>
+<h2 id="endpoints">🛠️ API Endpoints</h2>
 
-Documentação Swagger
+Swagger Documentation
 ```bash
 curl -X GET http://localhost:5002/apidocs
 ```
-Listagem de Reservas
+List Reservations
 ```bash
 curl -X GET http://localhost:5002/reservas
 ```
-Cadastro de Reserva
+Create Reservation
 ```bash
 curl -X POST http://localhost:5002/reservas \
     -H "Content-Type: application/json" \
@@ -90,11 +90,11 @@ curl -X POST http://localhost:5002/reservas \
             "turma_id": 1
         }'
 ```
-Exibir Reserva
+View Reservation
 ```bash
 curl -X GET http://localhost:5002/reservas/{reserva_id}
 ```
-Atualizar Reserva
+Update Reservation
 ```bash
 curl -X PUT http://localhost:5002/reservas/{reserva_id} \
     -H "Content-Type: application/json" \
@@ -105,7 +105,7 @@ curl -X PUT http://localhost:5002/reservas/{reserva_id} \
             "turma_id": 1
         }'
 ```
-Deletar Reserva
+Delete Reservation
 ```bash
 curl -X DELETE http://localhost:5002/reservas/{reserva_id}
 ```

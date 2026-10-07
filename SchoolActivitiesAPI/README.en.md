@@ -1,10 +1,10 @@
 <h1 align="center"; style="font-weight: bold;">School Activities API</h1>
 
-<h3 align="center"><img  alt="Faculdade Impacta" width = "400px" src="https://www.impacta.edu.br/themes/wc_agenciar3/images/logo-new.png"></h3>
+<h3 align="center"><img  alt="Impacta College" width = "400px" src="https://www.impacta.edu.br/themes/wc_agenciar3/images/logo-new.png"></h3>
 
 <p>
-    <img src="https://img.shields.io/badge/Status-Concluído-brightgreen" alt="Status = Concluído">
-    <img src="https://img.shields.io/badge/Documentação-Completa-brightgreen" alt="Documentação: Completa">
+    <img src="https://img.shields.io/badge/Status-Completed-brightgreen" alt="Status = Completed">
+    <img src="https://img.shields.io/badge/Documentation-Complete-brightgreen" alt="Documentation: Complete">
     <img src="https://img.shields.io/badge/License-MIT-blue" alt="License = MIT">
     <a href="./README.md" target="_blank"><img title="PT-BR" src="https://img.shields.io/badge/docs-pt--BR-blue" alt="README PT-BR"></a>
     <a href="./README.en.md" target="_blank"><img title="EN-US" src="https://img.shields.io/badge/docs-en--US-blue" alt="README EN-US"></a>
@@ -19,40 +19,40 @@
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
 <p align="center">
-    <a href="#sobre">Sobre</a> • 
-    <a href="#requisitos">Requisitos</a> •
-    <a href="#arquitetura">Arquitetura do Sistema</a> •
-    <a href="#how-it-works">Funcionalidades</a> •
-    <a href="#endpoints">Endpoints da API</a>
+    <a href="#about">About</a> • 
+    <a href="#requirements">Requirements</a> •
+    <a href="#architecture">System Architecture</a> •
+    <a href="#how-it-works">Features</a> •
+    <a href="#endpoints">API Endpoints</a>
 </p>
 
-<h2 id="sobre">📖 Sobre</h2>
-API referente ao Projeto Acadêmico da Disciplina de Desenvolvimento de APIs e Microsserviços, ministrada pelo professor Giovani Bontempo na Faculdade Impacta, durante o terceiro semestre do curso Análise e Desenvolvimento de Sistemas cursado no 2º Semestre de 2025.
-<br><br>O projeto consiste em uma API RESTful construída com Flask para realizar o gerenciamento de Atividades e Notas de uma instituição de ensino.
+<h2 id="about">📖 About</h2>
+API for the Academic Project of the API and Microservices Development course, taught by professor Giovani Bontempo at Impacta College, during the third semester of the Systems Analysis and Development program, taken in the 2nd semester of 2025.
+<br><br>The project consists of a RESTful API built with Flask to manage Activities and Grades for an educational institution.
 <br>
 
-<h2 id="requisitos">📦 Requisitos</h2>
+<h2 id="requirements">📦 Requirements</h2>
 
 [![Docker](https://badgen.net/badge/icon/docker?icon=docker&label)](https://https://docker.com/) <img src="https://img.shields.io/badge/python-3.13.2-blue" alt="Python = 3.13.2"><br>
 
-Tenha o Docker instalado caso queria rodar o projeto num container
+Make sure Docker is installed if you want to run the project in a container
 
-No diretório raiz do projeto, construa a imagem do container
+In the project's root directory, build the container image
 ```bash
 docker build -t school-activities .
 ```
-Execute o container
+Run the container
 ```bash
 docker run --name school-activities-container -p 5001:5001 school-activities
 ```
 
-Para rodar localmente sem ser via container tenho o Python instalado e no diretório raiz do projeto execute o comando para instalar as bibliotecas<br>
+To run locally without a container, make sure Python is installed, and in the project's root directory run the command to install the libraries<br>
 
 ```bash
 pip install -r requirements.txt
 ```
 
-<h2 id="arquitetura">🧩 Arquitetura do Sistema</h2>
+<h2 id="architecture">🧩 System Architecture</h2>
 📦SchoolActivitiesAPI<br>
  ┣ 📂controllers<br>
  ┃ ┣ 📜atividade_controller.py<br>
@@ -68,21 +68,21 @@ pip install -r requirements.txt
  ┣ 🧩requirements.txt<br>
  ┗ 📑swagger.yml<br>
 
-<h2 id="how-it-works">⚙️ Funcionalidades</h2>
-🔹 CRUD de Atividades (Cadastro, Listagem, Atualização e Exclusão)
-<br>🔹 CRUD de Notas (Cadastro, Listagem, Atualização e Exclusão)
+<h2 id="how-it-works">⚙️ Features</h2>
+🔹 Activity CRUD (Create, List, Update, and Delete)
+<br>🔹 Grade CRUD (Create, List, Update, and Delete)
 
-<h2 id="endpoints">🛠️ Endpoints da API</h2>
+<h2 id="endpoints">🛠️ API Endpoints</h2>
 
-Documentação Swagger
+Swagger Documentation
 ```bash
 curl -X GET http://localhost:5001/apidocs
 ```
-Listagem de Atividades
+List Activities
 ```bash
 curl -X GET http://localhost:5001/atividades
 ```
-Cadastro de Atividade
+Create Activity
 ```bash
 curl -X POST http://localhost:5001/atividades \
     -H "Content-Type: application/json" \
@@ -95,11 +95,11 @@ curl -X POST http://localhost:5001/atividades \
             "professor_id": 1
         }'
 ```
-Exibir Atividade
+View Activity
 ```bash
 curl -X GET http://localhost:5001/atividades/{atividade_id}
 ```
-Atualizar Atividade
+Update Activity
 ```bash
 curl -X PUT http://localhost:5001/atividades/{atividade_id} \
     -H "Content-Type: application/json" \
@@ -112,15 +112,15 @@ curl -X PUT http://localhost:5001/atividades/{atividade_id} \
             "professor_id": 1
         }'
 ```
-Deletar Atividade
+Delete Activity
 ```bash
 curl -X DELETE http://localhost:5001/atividades/{atividade_id}
 ```
-Listagem de Notas
+List Grades
 ```bash
 curl -X GET http://localhost:5001/notas
 ```
-Cadastro de Nota
+Create Grade
 ```bash
 curl -X POST http://localhost:5001/notas \
     -H "Content-Type: application/json" \
@@ -130,11 +130,11 @@ curl -X POST http://localhost:5001/notas \
             "atividade_id": 1    
         }'
 ```
-Exibir Nota
+View Grade
 ```bash
 curl -X GET http://localhost:5001/notas/{nota_id}
 ```
-Atualizar Nota
+Update Grade
 ```bash
 curl -X PUT http://localhost:5001/notas/{nota_id} \
     -H "Content-Type: application/json" \
@@ -144,7 +144,7 @@ curl -X PUT http://localhost:5001/notas/{nota_id} \
             "atividade_id": 1 
         }'
 ```
-Deletar Nota
+Delete Grade
 ```bash
 curl -X DELETE http://localhost:5001/notas/{nota_id}
 ```

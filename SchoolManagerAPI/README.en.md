@@ -1,10 +1,10 @@
 <h1 align="center"; style="font-weight: bold;">School Manager API</h1>
 
-<h3 align="center"><img  alt="Faculdade Impacta" width = "400px" src="https://www.impacta.edu.br/themes/wc_agenciar3/images/logo-new.png"></h3>
+<h3 align="center"><img  alt="Impacta College" width = "400px" src="https://www.impacta.edu.br/themes/wc_agenciar3/images/logo-new.png"></h3>
 
 <p>
-    <img src="https://img.shields.io/badge/Status-Concluído-brightgreen" alt="Status = Concluído">
-    <img src="https://img.shields.io/badge/Documentação-Completa-brightgreen" alt="Documentação: Completa">
+    <img src="https://img.shields.io/badge/Status-Completed-brightgreen" alt="Status = Completed">
+    <img src="https://img.shields.io/badge/Documentation-Complete-brightgreen" alt="Documentation: Complete">
     <img src="https://img.shields.io/badge/License-MIT-blue" alt="License = MIT">
     <a href="./README.md" target="_blank"><img title="PT-BR" src="https://img.shields.io/badge/docs-pt--BR-blue" alt="README PT-BR"></a>
     <a href="./README.en.md" target="_blank"><img title="EN-US" src="https://img.shields.io/badge/docs-en--US-blue" alt="README EN-US"></a>
@@ -19,64 +19,64 @@
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
 <p align="center">
-    <a href="#sobre">Sobre</a> • 
-    <a href="#requisitos">Requisitos</a> •
-    <a href="#arquitetura">Arquitetura do Sistema</a> •
-    <a href="#how-it-works">Funcionalidades</a> •
-    <a href="#endpoints">Endpoints da API</a>
+    <a href="#about">About</a> • 
+    <a href="#requirements">Requirements</a> •
+    <a href="#architecture">System Architecture</a> •
+    <a href="#how-it-works">Features</a> •
+    <a href="#endpoints">API Endpoints</a>
 </p>
 
-<h2 id="sobre">📖 Sobre</h2>
-API referente ao Projeto Acadêmico da Disciplina de Desenvolvimento de APIs e Microsserviços, ministrada pelo professor Giovani Bontempo na Faculdade Impacta, durante o terceiro semestre do curso Análise e Desenvolvimento de Sistemas cursado no 2º Semestre de 2025.
-<br><br>O projeto consiste em uma API RESTful construída com Flask para realizar o gerenciamento de Professores, Turmas e Alunos de uma instituição de ensino.
+<h2 id="about">📖 About</h2>
+API for the Academic Project of the API and Microservices Development course, taught by professor Giovani Bontempo at Impacta College, during the third semester of the Systems Analysis and Development program, taken in the 2nd semester of 2025.
+<br><br>The project consists of a RESTful API built with Flask to manage Teachers, Classes, and Students for an educational institution.
 <br>
 
-<h2 id="grupo">👥 Integrantes do Grupo</h2>
+<h2 id="team">👥 Team Members</h2>
 <table align="center">
   <tr>
     <td align="center">
-      <img src="https://github.com/ErickXr.png" width="100" alt="Foto"/><br>
+      <img src="https://github.com/ErickXr.png" width="100" alt="Photo"/><br>
       <b>Erick Xavier Ribeiro</b><br><br>
-        <a href="https://www.linkedin.com/in/erick-xavier-0a0b572a9/" target="_blank"><img title="Conecte-se" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Perfil Linkedin"/></a>
-        <a href="https://github.com/ErickXr" target="_blank"><img title="Siga-Me" src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="Perfil GitHub"/></a>
+        <a href="https://www.linkedin.com/in/erick-xavier-0a0b572a9/" target="_blank"><img title="Connect" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Profile"/></a>
+        <a href="https://github.com/ErickXr" target="_blank"><img title="Follow me" src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Profile"/></a>
     </td>
     <td align="center">
-      <img src="https://github.com/Jloren051.png" width="100" alt="Foto"/><br>
+      <img src="https://github.com/Jloren051.png" width="100" alt="Photo"/><br>
       <b>Julia Lourenço Nogueira</b><br><br>
-        <a href="https://www.linkedin.com/in/julia-louren%C3%A7o-8065082ba/" target="_blank"><img title="Conecte-se" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Perfil Linkedin"/></a>
-      <a href="https://github.com/Jloren051" target="_blank"><img title="Siga-Me" src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="Perfil GitHub"/></a>
+        <a href="https://www.linkedin.com/in/julia-louren%C3%A7o-8065082ba/" target="_blank"><img title="Connect" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Profile"/></a>
+      <a href="https://github.com/Jloren051" target="_blank"><img title="Follow me" src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Profile"/></a>
     </td>
     <td align="center">
-      <img src="https://github.com/LucasAguiarN.png" width="100"  alt="Foto"/><br>
+      <img src="https://github.com/LucasAguiarN.png" width="100"  alt="Photo"/><br>
       <b>Lucas Aguiar Nunes</b><br><br>
-      <a href="https://www.linkedin.com/in/lucas-aguiar-nunes" target="_blank"><img title="Conecte-se" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Perfil Linkedin"/></a>
-      <a href="https://github.com/LucasAguiarN" target="_blank"><img title="Siga-Me" src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="Perfil GitHub"/></a>
+      <a href="https://www.linkedin.com/in/lucas-aguiar-nunes" target="_blank"><img title="Connect" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Profile"/></a>
+      <a href="https://github.com/LucasAguiarN" target="_blank"><img title="Follow me" src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Profile"/></a>
     </td>
   </tr>
 </table>
 
-<h2 id="requisitos">📦 Requisitos</h2>
+<h2 id="requirements">📦 Requirements</h2>
 
 [![Docker](https://badgen.net/badge/icon/docker?icon=docker&label)](https://https://docker.com/) <img src="https://img.shields.io/badge/python-3.13.2-blue" alt="Python = 3.13.2"><br>
 
-Tenha o Docker instalado caso queria rodar o projeto num container
+Make sure Docker is installed if you want to run the project in a container
 
-No diretório raiz do projeto, construa a imagem do container
+In the project's root directory, build the container image
 ```bash
 docker build -t school-manager .
 ```
-Execute o container
+Run the container
 ```bash
 docker run --name school-manager-container -p 5000:5000 school-manager
 ```
 
-Para rodar localmente sem ser via container tenho o Python instalado e no diretório raiz do projeto execute o comando para instalar as bibliotecas<br>
+To run locally without a container, make sure Python is installed, and in the project's root directory run the command to install the libraries<br>
 
 ```bash
 pip install -r requirements.txt
 ```
 
-<h2 id="arquitetura">🧩 Arquitetura do Sistema</h2>
+<h2 id="architecture">🧩 System Architecture</h2>
 📦SchoolManagerAPI<br>
  ┣ 📂controllers<br>
  ┃ ┣ 📜aluno_controller.py<br>
@@ -94,22 +94,22 @@ pip install -r requirements.txt
  ┣ 🧩requirements.txt<br>
  ┗ 📑swagger.yml<br>
 
-<h2 id="how-it-works">⚙️ Funcionalidades</h2>
-🔹 CRUD de Alunos (Cadastro, Listagem, Atualização e Exclusão)
-<br>🔹 CRUD de Professors (Cadastro, Listagem, Atualização e Exclusão)
-<br>🔹 CRUD de Turmas (Cadastro, Listagem, Atualização e Exclusão)
+<h2 id="how-it-works">⚙️ Features</h2>
+🔹 Student CRUD (Create, List, Update, and Delete)
+<br>🔹 Teacher CRUD (Create, List, Update, and Delete)
+<br>🔹 Class CRUD (Create, List, Update, and Delete)
 
-<h2 id="endpoints">🛠️ Endpoints da API</h2>
+<h2 id="endpoints">🛠️ API Endpoints</h2>
 
-Documentação Swagger
+Swagger Documentation
 ```bash
 curl -X GET http://localhost:5000/apidocs
 ```
-Listagem de Professores
+List Teachers
 ```bash
 curl -X GET http://localhost:5000/professores
 ```
-Cadastro de Professor
+Create Teacher
 ```bash
 curl -X POST http://localhost:5000/professores \
     -H "Content-Type: application/json" \
@@ -120,11 +120,11 @@ curl -X POST http://localhost:5000/professores \
           "observacoes":""
         }'
 ```
-Exibir Professor
+View Teacher
 ```bash
 curl -X GET http://localhost:5000/professores/{professor_id}
 ```
-Atualizar Professor
+Update Teacher
 ```bash
 curl -X PUT http://localhost:5000/professores/{professor_id} \
     -H "Content-Type: application/json" \
@@ -135,15 +135,15 @@ curl -X PUT http://localhost:5000/professores/{professor_id} \
           "observacoes":""
         }'
 ```
-Deletar Professor
+Delete Teacher
 ```bash
 curl -X DELETE http://localhost:5000/professores/{professor_id}
 ```
-Listagem de Turmas
+List Classes
 ```bash
 curl -X GET http://localhost:5000/turmas
 ```
-Cadastro de Turma
+Create Class
 ```bash
 curl -X POST http://localhost:5000/turmas \
     -H "Content-Type: application/json" \
@@ -153,11 +153,11 @@ curl -X POST http://localhost:5000/turmas \
           "professor_id": 1
         }'
 ```
-Exibir Turma
+View Class
 ```bash
 curl -X GET http://localhost:5000/turmas/{turma_id}
 ```
-Atualizar Turma
+Update Class
 ```bash
 curl -X PUT http://localhost:5000/turmas/{turma_id} \
     -H "Content-Type: application/json" \
@@ -167,15 +167,15 @@ curl -X PUT http://localhost:5000/turmas/{turma_id} \
           "professor_id": 1
         }'
 ```
-Deletar Turma
+Delete Class
 ```bash
 curl -X DELETE http://localhost:5000/turmas/{turma_id}
 ```
-Listagem de Alunos
+List Students
 ```bash
 curl -X GET http://localhost:5000/alunos
 ```
-Cadastro de Alunos
+Create Student
 ```bash
 curl -X POST http://localhost:5000/alunos \
     -H "Content-Type: application/json" \
@@ -186,11 +186,11 @@ curl -X POST http://localhost:5000/alunos \
           "turma_id": 1
         }'
 ```
-Exibir Aluno
+View Student
 ```bash
 curl -X GET http://localhost:5000/alunos/{aluno_id}
 ```
-Atualizar Aluno
+Update Student
 ```bash
 curl -X PUT http://localhost:5000/alunos/{aluno_id} \
     -H "Content-Type: application/json" \
@@ -201,7 +201,7 @@ curl -X PUT http://localhost:5000/alunos/{aluno_id} \
           "turma_id": 1
         }'
 ```
-Deletar Alunos
+Delete Student
 ```bash
 curl -X DELETE http://localhost:5000/alunos/{aluno_id}
 ```
