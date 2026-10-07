@@ -116,9 +116,9 @@ docker-compose up --build
 
 <h2 id="sistema">⚙️ Funcionalidades</h2>
 Para utilização do Sistema e Endpoints, pode verificar a documentação disponível de cada microserviço:
-<br><a href="./SchoolActivitiesAPI/README.en.md">SchoolActivitiesAPI</a>
-<br><a href="./SchoolManagerAPI/README.en.md">SchoolManagerAPI</a>
-<br><a href="./SchoolReservationAPI/README.en.md">SchoolReservationAPI</a>
+<br><a href="./SchoolActivitiesAPI/README.md">SchoolActivitiesAPI</a>
+<br><a href="./SchoolManagerAPI/README.md">SchoolManagerAPI</a>
+<br><a href="./SchoolReservationAPI/README.md">SchoolReservationAPI</a>
 
 <h2 id="licença">📜 Licença</h2>
 Este projeto é para fins educacionais e está disponível sob a <a href="./LICENSE">Licença MIT.</a>

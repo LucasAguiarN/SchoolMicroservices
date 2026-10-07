@@ -116,9 +116,9 @@ docker-compose up --build
 
 <h2 id="sistema">⚙️ Features</h2>
 To use the System and Endpoints, you can check the documentation available for each microservice:
-<br><a href="./SchoolActivitiesAPI/README.md">SchoolActivitiesAPI</a>
-<br><a href="./SchoolManagerAPI/README.md">SchoolManagerAPI</a>
-<br><a href="./SchoolReservationAPI/README.md">SchoolReservationAPI</a>
+<br><a href="./SchoolActivitiesAPI/README.en.md">SchoolActivitiesAPI</a>
+<br><a href="./SchoolManagerAPI/README.en.md">SchoolManagerAPI</a>
+<br><a href="./SchoolReservationAPI/README.en.md">SchoolReservationAPI</a>
 
 <h2 id="license">📜 License</h2>
 This project is for educational purposes and is available under the <a href="./LICENSE">MIT License.</a>
