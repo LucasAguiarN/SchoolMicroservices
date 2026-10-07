@@ -18,11 +18,10 @@
 
 <p align="center">
     <a href="#sobre">Sobre</a> • 
-    <a href="#grupo">Integrantes do Grupo</a> •
     <a href="#requisitos">Requisitos</a> •
+    <a href="#arquitetura">Arquitetura do Sistema</a> •
     <a href="#how-it-works">Funcionalidades</a> •
-    <a href="#endpoints">Endpoints da API</a> •
-    <a href="#licença">Licença</a>
+    <a href="#endpoints">Endpoints da API</a>
 </p>
 
 <h2 id="sobre">📖 Sobre</h2>
@@ -74,6 +73,24 @@ Para rodar localmente sem ser via container tenho o Python instalado e no diret�
 ```bash
 pip install -r requirements.txt
 ```
+
+<h2 id="arquitetura">🧩 Arquitetura do Sistema</h2>
+📦SchoolManagerAPI<br>
+ ┣ 📂controllers<br>
+ ┃ ┣ 📜aluno_controller.py<br>
+ ┃ ┣ 📜professor_controller.py<br>
+ ┃ ┗ 📜turma_controller.py<br>
+ ┣ 📂models<br>
+ ┃ ┣ 📜__init__.py<br>
+ ┃ ┣ 📜aluno.py<br>
+ ┃ ┣ 📜professor.py<br>
+ ┃ ┗ 📜turma.py<br>
+ ┣ 🚀app.py<br>
+ ┣ ⚙️config.py<br>
+ ┣ 🐳Dockerfile<br>
+ ┣ 📖README.md<br>
+ ┣ 🧩requirements.txt<br>
+ ┗ 📑swagger.yml<br>
 
 <h2 id="how-it-works">⚙️ Funcionalidades</h2>
 🔹 CRUD de Alunos (Cadastro, Listagem, Atualização e Exclusão)

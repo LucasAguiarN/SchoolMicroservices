@@ -89,11 +89,9 @@ docker-compose up --build
  ┃ ┃ ┣ 📜aluno.py<br>
  ┃ ┃ ┣ 📜professor.py<br>
  ┃ ┃ ┗ 📜turma.py<br>
- ┃ ┣ 📜.gitignore<br>
  ┃ ┣ 🚀app.py<br>
  ┃ ┣ ⚙️config.py<br>
  ┃ ┣ 🐳Dockerfile<br>
- ┃ ┣ 📜LICENSE<br>
  ┃ ┣ 📖README.md<br>
  ┃ ┣ 📦requirements.txt<br>
  ┃ ┗ 📑swagger.yml<br>

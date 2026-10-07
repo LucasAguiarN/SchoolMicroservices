@@ -19,8 +19,9 @@
 <p align="center">
     <a href="#sobre">Sobre</a> • 
     <a href="#requisitos">Requisitos</a> •
+    <a href="#arquitetura">Arquitetura do Sistema</a> •
     <a href="#how-it-works">Funcionalidades</a> •
-    <a href="#endpoints">Endpoints da API</a> •
+    <a href="#endpoints">Endpoints da API</a>
 </p>
 
 <h2 id="sobre">📖 Sobre</h2>
@@ -48,6 +49,20 @@ Para rodar localmente sem ser via container tenho o Python instalado e no diret�
 ```bash
 pip install -r requirements.txt
 ```
+
+<h2 id="arquitetura">🧩 Arquitetura do Sistema</h2>
+📦SchoolReservationAPI<br>
+ ┣ 📂controllers<br>
+ ┃ ┗ 📜reserva_controller.py<br>
+ ┣ 📂models<br>
+ ┃ ┣ 📜__init__.py<br>
+ ┃ ┗ 📜reserva.py<br>
+ ┣ 🚀app.py<br>
+ ┣ ⚙️config.py<br>
+ ┣ 🐳Dockerfile<br>
+ ┣ 📖README.md<br>
+ ┣ 🧩requirements.txt<br>
+ ┗ 📑swagger.yml<br>
 
 <h2 id="how-it-works">⚙️ Funcionalidades</h2>
 🔹 CRUD de Reservas (Cadastro, Listagem, Atualização e Exclusão)
