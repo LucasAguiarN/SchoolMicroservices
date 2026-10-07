@@ -70,9 +70,9 @@ curl -X POST http://localhost:5001/atividades \
     -d '{
             "nome_atividade": "Laboratório",
             "descricao": "Laboratorio de Redes",
-            "peso_porcentagem": "1",
+            "peso_porcentagem": 1,
             "data_entrega": "05/11/2025",
-            "turma_id": "1",
+            "turma_id": 1,
             "professor_id": 1
         }'
 ```
@@ -87,9 +87,9 @@ curl -X PUT http://localhost:5001/atividades/{atividade_id} \
     -d '{
             "nome_atividade": "Labpratório de Redes 1",
             "descricao": "Laboratorio de Redes",
-            "peso_porcentagem": "1",
+            "peso_porcentagem": 1,
             "data_entrega": "06/11/2025",
-            "turma_id": "1",
+            "turma_id": 1,
             "professor_id": 1
         }'
 ```
@@ -106,9 +106,9 @@ Cadastro de Nota
 curl -X POST http://localhost:5001/notas \
     -H "Content-Type: application/json" \
     -d '{
-            "nota": "10",
-            "aluno_id": "1",
-            "atividade_id": "1"    
+            "nota": 10,
+            "aluno_id": 1,
+            "atividade_id": 1    
         }'
 ```
 Exibir Nota
@@ -120,9 +120,9 @@ Atualizar Nota
 curl -X PUT http://localhost:5001/notas/{nota_id} \
     -H "Content-Type: application/json" \
     -d '{
-            "nota": "8",
-            "aluno_id": "1",
-            "atividade_id": "1" 
+            "nota": 8,
+            "aluno_id": 1,
+            "atividade_id": 1 
         }'
 ```
 Deletar Nota

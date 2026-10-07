@@ -95,9 +95,9 @@ Cadastro de Professor
 curl -X POST http://localhost:5000/professores \
     -H "Content-Type: application/json" \
     -d '{
-          "nome":"Carlos",
-          "idade":"32", 
-          "materia":"Microserviços",
+          "nome": "Carlos",
+          "idade": 32, 
+          "materia": "Microserviços",
           "observacoes":""
         }'
 ```
@@ -110,9 +110,9 @@ Atualizar Professor
 curl -X PUT http://localhost:5000/professores/{professor_id} \
     -H "Content-Type: application/json" \
     -d '{
-          "nome":"Carlos",
-          "idade":"32", 
-          "materia":"Mobile",
+          "nome": "Carlos",
+          "idade": 32, 
+          "materia": "Mobile",
           "observacoes":""
         }'
 ```
@@ -129,9 +129,9 @@ Cadastro de Turma
 curl -X POST http://localhost:5000/turmas \
     -H "Content-Type: application/json" \
     -d '{
-          "descricao":"ADS Periodo Manha", 
-          "ativo":"True",
-          "professor_id":"1"
+          "descricao": "ADS Periodo Manha", 
+          "ativo": "True",
+          "professor_id": 1
         }'
 ```
 Exibir Turma
@@ -143,9 +143,9 @@ Atualizar Turma
 curl -X PUT http://localhost:5000/turmas/{turma_id} \
     -H "Content-Type: application/json" \
     -d '{
-          "descricao":"ADS Periodo Manha", 
-          "ativo":"False",
-          "professor_id":"1"
+          "descricao": "ADS Periodo Manha", 
+          "ativo": "False",
+          "professor_id": 1
         }'
 ```
 Deletar Turma
@@ -161,10 +161,10 @@ Cadastro de Alunos
 curl -X POST http://localhost:5000/alunos \
     -H "Content-Type: application/json" \
     -d '{
-          "nome":"Lucas",
-          "idade":"27", 
-          "data_nasc":"18/11/1998",
-          "turma_id":"1"
+          "nome": "Lucas",
+          "idade": 27, 
+          "data_nasc": "18/11/1998",
+          "turma_id": 1
         }'
 ```
 Exibir Aluno
@@ -176,10 +176,10 @@ Atualizar Aluno
 curl -X PUT http://localhost:5000/alunos/{aluno_id} \
     -H "Content-Type: application/json" \
     -d '{
-          "nome":"Lucas",
-          "idade":"27", 
-          "data_nasc":"18/11/1998",
-          "turma_id":"1"
+          "nome": "Lucas",
+          "idade": 27, 
+          "data_nasc": "18/11/1998",
+          "turma_id": 1
         }'
 ```
 Deletar Alunos

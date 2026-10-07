@@ -67,10 +67,10 @@ Cadastro de Reserva
 curl -X POST http://localhost:5002/reservas \
     -H "Content-Type: application/json" \
     -d '{
-            "num_sala": "101",
+            "num_sala": 101,
             "lab": "True",
             "data": "10/10/2025",
-            "turma_id": "1"
+            "turma_id": 1
         }'
 ```
 Exibir Reserva
@@ -82,10 +82,10 @@ Atualizar Reserva
 curl -X PUT http://localhost:5002/reservas/{reserva_id} \
     -H "Content-Type: application/json" \
     -d '{
-            "num_sala": "202",
+            "num_sala": 202,
             "lab": "False",
             "data": "10/10/2025",
-            "turma_id": "1"
+            "turma_id": 1
         }'
 ```
 Deletar Reserva

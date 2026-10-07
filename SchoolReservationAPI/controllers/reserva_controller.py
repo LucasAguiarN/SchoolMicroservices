@@ -144,7 +144,7 @@ class ReservaController:
                     return jsonify(mensagem), 409
         
         # Requisição para SchoolManaganer API para acessar Turmas
-        response = request.get("http://schoolmanager:5000/turmas/{}".format(turma_id))
+        response = requests.get("http://schoolmanager:5000/turmas/{}".format(turma_id))
 
         if response.status_code != 200:
             mensagem = {"Erro": "Turma Não Cadastrada!"}
